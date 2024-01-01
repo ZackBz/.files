@@ -99,3 +99,15 @@ source $ZSH/oh-my-zsh.sh
 # aliases
 alias zshconfig="nano ~/.zshrc"
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+alias tinker='php artisan tinker'
+alias artisan='php artisan'
+alias pint='./vendor/bin/pint'
+
+routes () {
+        if [[ ! -n $1 ]]
+        then
+                php artisan route:list
+        else
+                php artisan route:list | grep -i "$1"
+        fi
+}
