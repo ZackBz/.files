@@ -1,0 +1,50 @@
+[window]
+opacity = 0.9
+padding.x = 15
+padding.y = 15
+
+[font]
+size = 16.0
+[scrolling]
+history = 100000
+
+[bell]
+animation = "Ease"
+duration = 2500
+
+[cursor]
+style = { shape = "Beam", blinking = "On" }
+blink_interval = 750
+blink_timeout = 5
+thickness = 0.15
+
+[mouse]
+hide_when_typing = true
+
+# Colors (Snazzy)
+# Default colors
+[colors.primary]
+background = '#282a36'
+foreground = '#eff0eb'
+
+# Normal colors
+[colors.normal]
+black = '#282a36'
+red = '#ff5c57'
+green = '#5af78e'
+yellow = '#f3f99d'
+blue = '#57c7ff'
+magenta = '#ff6ac1'
+cyan = '#9aedfe'
+white = '#f1f1f0'
+
+# Bright colors
+[colors.bright]
+black = '#686868'
+red = '#ff5c57'
+green = '#5af78e'
+yellow = '#f3f99d'
+blue = '#57c7ff'
+magenta = '#ff6ac1'
+cyan = '#9aedfe'
+white = '#f1f1f0'
