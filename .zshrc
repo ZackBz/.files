@@ -96,7 +96,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # aliases
-alias zshconfig="nano ~/.zshrc"
+alias zshconfig="vim ~/.zshrc"
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 alias tinker='php artisan tinker'
 alias artisan='php artisan'

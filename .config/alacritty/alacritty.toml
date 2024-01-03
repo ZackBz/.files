@@ -1,10 +1,14 @@
+[shell]
+program = "/usr/bin/tmux"
+
 [window]
 opacity = 0.9
 padding.x = 15
 padding.y = 15
+position = { x = 100, y = 150 }
 
 [font]
-size = 16.0
+size = 14.0
 [scrolling]
 history = 100000
 
