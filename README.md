@@ -12,9 +12,6 @@ git clone --bare <git-repo-url> $HOME/.files
 ```
 
 ```shell
-alias config='/usr/bin/git --git-dir=$HOME/.files/ --work-tree=$HOME'
-```
-```shell
 config checkout
 ```
 
@@ -23,7 +20,17 @@ config config --local status.showUntrackedFiles no
 ```
 
 # Troubleshooting
----
+
+When checking out, you might get some permission errors:
+
+```
+error: The following untracked working tree files would be overwritten by checkout:
+    .bashrc
+    .gitignore
+Please move or remove them before you can switch branches.
+Aborting
+```
+To fix this, run the below command which will create a backup directory and copy over config files.
 
 ```shell
 mkdir -p .config_backup && \
