@@ -8,10 +8,6 @@ size = 16.0
 [scrolling]
 history = 100000
 
-[bell]
-animation = "Ease"
-duration = 2500
-
 [cursor]
 style = { shape = "Beam", blinking = "On" }
 blink_interval = 750
