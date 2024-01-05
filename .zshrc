@@ -2,11 +2,14 @@
 export ZSH="$HOME/.config/zsh"
 
 autoload -U promptinit; promptinit
-prompt pure
 
-# source
+# source plugins
 
+# local 
 source "$ZSH/plugins/archlinux.plugin.zsh"
+
+#arch installed
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # aliases
 alias zshconfig='vim ~/.zshrc'
@@ -17,6 +20,10 @@ alias artisan='php artisan'
 alias pint='./vendor/bin/pint'
 alias config='/usr/bin/git --git-dir=$HOME/.files/ --work-tree=$HOME'
 
+#style
+zstyle :prompt:pure:git:stash show yes
+
+# helpers
 routes () {
         if [[ ! -n $1 ]]
         then
@@ -25,3 +32,6 @@ routes () {
                 php artisan route:list | grep -i "$1"
         fi
 }
+
+#set prompt
+prompt pure

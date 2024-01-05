@@ -2,7 +2,6 @@
 #               Pacman                #
 #######################################
 
-# Pacman - https://wiki.archlinux.org/index.php/Pacman_Tips
 alias pacupg='sudo pacman -Syu'
 alias pacin='sudo pacman -S'
 alias paclean='sudo pacman -Sc'
