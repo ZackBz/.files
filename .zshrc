@@ -6,7 +6,7 @@ autoload -U promptinit; promptinit
 # source plugins local
 source "$ZSH/plugins/archlinux.plugin.zsh"
 
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source "$ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # aliases
 alias zshconfig='vim ~/.zshrc'
@@ -36,4 +36,4 @@ routes () {
 prompt pure
 
 # needs to be sourced at EOF
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "$ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
