@@ -3,6 +3,14 @@ export ZSH="$HOME/.config/zsh"
 
 autoload -U promptinit; promptinit
 
+
+#functions
+
+function current_branch() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo ${ref#refs/heads/}
+}
+
 # source plugins local
 source "$ZSH/plugins/archlinux.plugin.zsh"
 
@@ -18,6 +26,14 @@ alias tinker='php artisan tinker'
 alias artisan='php artisan'
 alias pint='./vendor/bin/pint'
 alias config='/usr/bin/git --git-dir=$HOME/.files/ --work-tree=$HOME'
+
+# git
+
+alias gaa='git add --all'
+alias gc='git commit -m'
+alias ggl= "git pull origin $(current_branch)"
+alias ggp="git push origin $(current_branch)"
+alias gs='git status'
 
 # style
 zstyle :prompt:pure:git:stash show yes
