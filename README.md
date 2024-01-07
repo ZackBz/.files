@@ -6,7 +6,6 @@
 alias config='/usr/bin/git --git-dir=$HOME/.files/ --work-tree=$HOME'
 ```
 
-
 ```shell
 git clone --bare <git-repo-url> $HOME/.files
 ```
@@ -19,8 +18,12 @@ config checkout
 config config --local status.showUntrackedFiles no
 ```
 
-# Troubleshooting
+## ZSH Extras
+---
+- [Pure Prompt](https://github.com/sindresorhus/pure)
 
+# Troubleshooting
+--- 
 When checking out, you might get some permission errors:
 
 ```
