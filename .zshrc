@@ -1,5 +1,7 @@
 # zsh
 export ZSH="$HOME/.config/zsh"
+export GOPATH="$HOME/go/bin"
+export PATH="$GOPATH:$PATH"
 
 autoload -U promptinit; promptinit
 
