@@ -28,6 +28,7 @@ alias tinker='php artisan tinker'
 alias artisan='php artisan'
 alias pint='./vendor/bin/pint'
 alias config='/usr/bin/git --git-dir=$HOME/.files/ --work-tree=$HOME'
+alias snow='cd ~/code/snowlabs'
 
 # git
 
