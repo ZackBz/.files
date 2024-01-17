@@ -13,6 +13,14 @@ function current_branch() {
   echo ${ref#refs/heads/}
 }
 
+function pidof () {
+    lsof -i ":$1" -Fp | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox} p | cut -c 2-
+}
+
+function killports () {
+    pidof "$1" | xargs kill -9
+}
+
 # source plugins local
 source "$ZSH/plugins/archlinux.plugin.zsh"
 
