@@ -27,8 +27,8 @@ source "$ZSH/plugins/archlinux.plugin.zsh"
 source "$ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # aliases
-alias zshconfig='vim ~/.zshrc'
-alias tmuxconfig='vim ~/.config/tmux/tmux.conf'
+alias zshconfig='nvim ~/.zshrc'
+alias tmuxconfig='nvim ~/.config/tmux/tmux.conf'
 alias tmuxks='tmux kill-session'
 alias tmuxksa='tmux kill-session -a'
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
