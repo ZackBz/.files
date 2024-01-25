@@ -1,11 +1,14 @@
+import = [
+  "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
 [shell]
 program = "/usr/bin/tmux"
 
 [window]
 opacity = 0.9
-padding.x = 15
-padding.y = 15
-position = { x = 100, y = 150 }
+decorations = "None"
+startup_mode = "Maximized"
 
 [font]
 normal = { family = "JetBrainsMonoNerdFontMono", style="Regular" }
@@ -14,8 +17,11 @@ size = 14.0
 [scrolling]
 history = 100000
 
+[selection]
+save_to_clipboard = true
+
 [cursor]
-style = { shape = "Beam", blinking = "On" }
+style = { shape = "Beam", blinking = "Always" }
 blink_interval = 750
 blink_timeout = 5
 thickness = 0.15
@@ -24,29 +30,3 @@ thickness = 0.15
 hide_when_typing = true
 
 
-# Default colors
-[colors.primary]
-background = '#282a36'
-foreground = '#eff0eb'
-
-# Normal colors
-[colors.normal]
-black   = '#282a36'
-red     = '#ff5c57'
-green   = '#5af78e'
-yellow  = '#f3f99d'
-blue    = '#57c7ff'
-magenta = '#ff6ac1'
-cyan    = '#9aedfe'
-white   = '#f1f1f0'
-
-# Bright colors
-[colors.bright]
-black   = '#686868'
-red     = '#ff5c57'
-green   = '#5af78e'
-yellow  = '#f3f99d'
-blue    = '#57c7ff'
-magenta = '#ff6ac1'
-cyan    = '#9aedfe'
-white   = '#f1f1f0'
