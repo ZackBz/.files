@@ -17,3 +17,4 @@ opt.cursorline = true
 
 opt.backspace = "indent,eol,start"
 
+opt.termguicolors = true
