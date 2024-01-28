@@ -1,19 +1,20 @@
 # zsh
 export ZSH="$HOME/.config/zsh"
-export GOPATH="$HOME/go/bin"
-export PATH="$GOPATH:$PATH"
+export GOPATH="$HOME/go"
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$GOPATH/bin:$PATH"
 autoload -U promptinit; promptinit
 
 
 #functions
 
 function current_branch() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  ref=$(git symbolic-ref head 2> /dev/null) || return
   echo ${ref#refs/heads/}
 }
 
 function pidof () {
-    lsof -i ":$1" -Fp | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox} p | cut -c 2-
+    lsof -i ":$1" -fp | grep --color=auto --exclude-dir={.bzr,cvs,.git,.hg,.svn,.idea,.tox} p | cut -c 2-
 }
 
 function killports () {
@@ -34,7 +35,7 @@ alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 alias tinker='php artisan tinker'
 alias artisan='php artisan'
 alias pint='./vendor/bin/pint'
-alias config='/usr/bin/git --git-dir=$HOME/.files/ --work-tree=$HOME'
+alias config='/usr/bin/git --git-dir=$home/.files/ --work-tree=$home'
 alias snow='cd ~/code/snowlabs'
 
 # git
@@ -63,3 +64,10 @@ prompt pure
 
 # needs to be sourced at EOF
 source "$ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# bun completions
+[ -s "/home/zack/.bun/_bun" ] && source "/home/zack/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
