@@ -19,11 +19,13 @@ config config --local status.showUntrackedFiles no
 ```
 
 ## ZSH Extras
----
 - [Pure Prompt](https://github.com/sindresorhus/pure)
 
-# Troubleshooting
---- 
+## Tmux Extras
+
+- [TPM](https://github.com/tmux-plugins/tpm)
+
+## Troubleshooting
 When checking out, you might get some permission errors:
 
 ```
