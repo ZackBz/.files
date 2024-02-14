@@ -10,7 +10,7 @@ decorations = "None"
 startup_mode = "Maximized"
 
 [font]
-normal = { family = "JetBrainsMonoNerdFontMono", style = "Regular" }
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
 size = 14.0
 
 [scrolling]
