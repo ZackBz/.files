@@ -22,6 +22,9 @@ function pidof () {
 function killports () {
     pidof "$1" | xargs kill -9
 }
+function cdf () {
+    alias config='/usr/bin/git --git-dir=$HOME/.files/ --work-tree=$HOME'
+}
 
 # source plugins local
 source "$ZSH/plugins/archlinux.plugin.zsh"
@@ -37,7 +40,7 @@ alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 alias tinker='php artisan tinker'
 alias artisan='php artisan'
 alias pint='./vendor/bin/pint'
-alias config='/usr/bin/git --git-dir=$home/.files/ --work-tree=$home'
+# alias config='/usr/bin/git --git-dir=$home/.files/ --work-tree=$home'
 alias snow='cd ~/code/snowlabs'
 
 # git
