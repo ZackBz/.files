@@ -1,7 +1,7 @@
 import = ["~/.config/alacritty/catppuccin-mocha.toml"]
 
 [shell]
-program = "/opt/homebrew/bin/tmux"
+program = "/usr/bin/tmux"
 
 
 [window]

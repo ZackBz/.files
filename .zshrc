@@ -3,8 +3,10 @@ export ZSH="$HOME/.config/zsh"
 export GOPATH="$HOME/go"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$GOPATH/bin:$PATH"
+# needed for mac prompt
+fpath+=($HOME/.zsh/pure)
 autoload -U promptinit; promptinit
-
+prompt pure
 
 #functions
 
@@ -59,9 +61,6 @@ routes () {
         fi
 }
 
-# set prompt
-prompt pure
-
 # check OS
 if [[ $(uname) == "Darwin" ]]; then 
 # bun completions
@@ -81,6 +80,7 @@ export HERD_PHP_83_INI_SCAN_DIR="/Users/zackbaldwin/Library/Application Support/
 export HERD_PHP_82_INI_SCAN_DIR="/Users/zackbaldwin/Library/Application Support/Herd/config/php/82/"
 
 fi
+
 
 # needs to be sourced at EOF
 source "$ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
