@@ -6,7 +6,7 @@ program = "/opt/homebrew/bin/tmux"
 
 [window]
 opacity = 0.9
-decorations = "None"
+# decorations = "None"
 startup_mode = "Maximized"
 
 [font]
