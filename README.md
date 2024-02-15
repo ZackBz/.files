@@ -24,6 +24,7 @@ config config --local status.showUntrackedFiles no
 ## Tmux Extras
 
 - [TPM](https://github.com/tmux-plugins/tpm)
+   - Press `prefix + I` to fetch the installed plugins.
 
 ## Troubleshooting
 When checking out, you might get some permission errors:
