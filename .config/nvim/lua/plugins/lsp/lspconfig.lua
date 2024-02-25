@@ -68,6 +68,7 @@ return {
 		lspconfig["html"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			filetypes = { "html", "templ" },
 		})
 
 		lspconfig["cssls"].setup({
@@ -78,6 +79,8 @@ return {
 		lspconfig["tailwindcss"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			filetypes = { "templ", "javascript", "vue" },
+			init_options = { userLanguage = { templ = "html" } },
 		})
 
 		lspconfig["gopls"].setup({
@@ -88,6 +91,7 @@ return {
 		lspconfig["htmx"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			filetypes = { "html", "templ" },
 		})
 
 		lspconfig["jsonls"].setup({
@@ -117,6 +121,11 @@ return {
 		})
 
 		lspconfig["volar"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig["templ"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})

@@ -18,3 +18,6 @@ opt.cursorline = true
 opt.backspace = "indent,eol,start"
 
 opt.termguicolors = true
+
+vim.filetype.add({ extension = { templ = "templ" } })
+vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*.templ" }, callback = vim.lsp.buf.format })

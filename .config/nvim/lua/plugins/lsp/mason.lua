@@ -35,6 +35,7 @@ return {
 				"htmx",
 				"jsonls",
 				"volar",
+				"templ",
 			},
 			automatic_installation = true,
 		})
