@@ -332,18 +332,35 @@ require('lazy').setup {
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
       -- See `:help lspconfig-all` for a list of all the pre-configured LSPs
+      vim.filetype.add { extension = { templ = 'templ' } }
       local servers = {
         cssls = {},
         dockerls = {},
         emmet_language_server = {},
         gopls = {},
         grammarly = {},
-        html = {},
-        htmx = {},
+        html = {
+          on_attach = on_attach,
+          capabilities = capabilities,
+          filetypes = { 'html', 'templ' },
+        },
+        htmx = {
+          on_attach = on_attach,
+          capabilites = capabilities,
+          filetypes = { 'html', 'templ' },
+        },
         jsonls = {},
         marksman = {},
-        tailwindcss = {},
-        templ = {},
+        tailwindcss = {
+          on_attach = on_attach,
+          capabilities = capabilities,
+          filetypes = { 'templ', 'javascript', 'vue' },
+          init_options = { userLanguages = { templ = 'html' } },
+        },
+        templ = {
+          on_attach = on_attach,
+          capabilites = capabilities,
+        },
         volar = {},
         lua_ls = {
           settings = {
