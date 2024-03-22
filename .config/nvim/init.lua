@@ -349,19 +349,28 @@ require('lazy').setup {
           capabilites = capabilities,
           filetypes = { 'html', 'templ' },
         },
+        intelephense = {},
         jsonls = {},
         marksman = {},
         tailwindcss = {
           on_attach = on_attach,
           capabilities = capabilities,
-          filetypes = { 'templ', 'javascript', 'vue' },
+          filetypes = { 'templ', 'vue' },
           init_options = { userLanguages = { templ = 'html' } },
         },
         templ = {
           on_attach = on_attach,
           capabilites = capabilities,
         },
-        volar = {},
+        --tsserver = {},
+        volar = {
+          filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+          init_options = {
+            vue = {
+              hybridMode = false,
+            },
+          },
+        },
         lua_ls = {
           settings = {
             Lua = {
@@ -420,7 +429,7 @@ require('lazy').setup {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
-        --
+        javascript = { 'prettier' },
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
         -- javascript = { { "prettierd", "prettier" } },
