@@ -58,7 +58,7 @@ vim.opt.scrolloff = 10
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 vim.keymap.set('i', 'jj', '<ESC>', { desc = 'Exit insert mode with jj' })
-
+vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -120,6 +120,8 @@ require('lazy').setup {
     config = true,
     opts = {},
   },
+  { 'stevearc/dressing.nvim', opts = {} },
+  { 'stevearc/oil.nvim', opts = {} },
   -- pass config options to `gitsigns.nvim`. This is equivalent to the following lua:
   --    require('gitsigns').setup({ ... })
   --
