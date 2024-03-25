@@ -59,6 +59,10 @@ vim.opt.scrolloff = 10
 --  See `:help vim.keymap.set()`
 vim.keymap.set('i', 'jj', '<ESC>', { desc = 'Exit insert mode with jj' })
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+vim.keymap.set('i', '<C-e>', '<End>', { desc = 'Jump to end of line in insert mode', noremap = true })
+vim.keymap.set('i', '<C-a>', '<Home>', { desc = 'Jump to start of line in insert mode', noremap = true })
+vim.keymap.set('i', '<C-b>', '<Left>', { desc = 'Move left one character in insert mode', noremap = true })
+vim.keymap.set('i', '<C-f>', '<Right>', { desc = 'Move right one character in insert mode', noremap = true })
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -526,12 +530,13 @@ require('lazy').setup {
     -- change the command in the config to whatever the name of that colorscheme is
     --
     -- to see what colorschemes are already installed, you can use `:Telescope colorscheme`
-    'folke/tokyonight.nvim',
+    'catppuccin/nvim',
+    name = 'catppuccin', -- in catppuccin setup
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- Load the colorscheme here
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'catppuccin'
 
       -- You can configure highlights by doing something like
       vim.cmd.hi 'Comment gui=none'
