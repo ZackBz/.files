@@ -479,8 +479,21 @@ require('lazy').setup {
       -- See `:help cmp`
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
+      local snip = luasnip.snippet
+      local text = luasnip.text_node
+      local insert = luasnip.insert_node
+
       luasnip.config.setup {}
 
+      luasnip.add_snippets('vue', {
+        snip('vbase', {
+          text { '<script setup></script>', '' },
+          text { '<template>', '' },
+          insert(1, '<div></div>'),
+          text { '', '</template>', '' },
+          text '<style scoped></style>',
+        }),
+      })
       cmp.setup {
         snippet = {
           expand = function(args)
