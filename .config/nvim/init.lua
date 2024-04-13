@@ -106,8 +106,6 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
---
--- Install plugins here
 require('lazy').setup {
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
@@ -125,7 +123,23 @@ require('lazy').setup {
     opts = {},
   },
   { 'stevearc/dressing.nvim', opts = {} },
-  { 'stevearc/oil.nvim', opts = {} },
+  {
+    'stevearc/oil.nvim',
+    opts = {
+      view_options = {
+        -- show hidden files and directories that start with "."
+        show_hidden = true,
+      },
+    },
+  },
+  { 'f-person/git-blame.nvim', opts = { date_format = '%r' } },
+  {
+    'nvim-lualine/lualine.nvim',
+    opts = {
+      theme = 'gruvbox',
+    },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+  },
   -- pass config options to `gitsigns.nvim`. This is equivalent to the following lua:
   --    require('gitsigns').setup({ ... })
   --
@@ -200,12 +214,50 @@ require('lazy').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
-        -- pickers = {}
+        defaults = {
+          mappings = {
+            i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+          },
+          -- configure to use ripgrep
+          vimgrep_arguments = {
+            'rg',
+            '--follow', -- Follow symbolic links
+            '--hidden', -- Search for hidden files
+            '--no-heading', -- Don't group matches by each file
+            '--with-filename', -- Print the file path with the matched lines
+            '--line-number', -- Show line numbers
+            '--column', -- Show column numbers
+            '--smart-case', -- Smart case search
+
+            -- Exclude some patterns from search
+            '--glob=!**/.git/*',
+            '--glob=!**/.idea/*',
+            '--glob=!**/.vscode/*',
+            '--glob=!**/build/*',
+            '--glob=!**/dist/*',
+            '--glob=!**/yarn.lock',
+            '--glob=!**/package-lock.json',
+          },
+        },
+        pickers = {
+          find_files = {
+            hidden = true,
+            -- needed to exclude some files & dirs from general search
+            -- when not included or specified in .gitignore
+            find_command = {
+              'rg',
+              '--files',
+              '--hidden',
+              '--glob=!**/.git/*',
+              '--glob=!**/.idea/*',
+              '--glob=!**/.vscode/*',
+              '--glob=!**/build/*',
+              '--glob=!**/dist/*',
+              '--glob=!**/yarn.lock',
+              '--glob=!**/package-lock.json',
+            },
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -221,7 +273,7 @@ require('lazy').setup {
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      --vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
@@ -241,13 +293,6 @@ require('lazy').setup {
 
       -- Also possible to pass additional configuration options.
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
-
-      vim.keymap.set('n', '<leader>sf', function()
-        builtin.find_files {
-          no_ignore = true,
-          hidden = true,
-        }
-      end, { desc = '[S]earch [F]iles' })
 
       vim.keymap.set('n', '<leader>s/', function()
         builtin.live_grep {
@@ -551,13 +596,16 @@ require('lazy').setup {
     -- change the command in the config to whatever the name of that colorscheme is
     --
     -- to see what colorschemes are already installed, you can use `:Telescope colorscheme`
-    'catppuccin/nvim',
-    name = 'catppuccin', -- in catppuccin setup
+    'ellisonleao/gruvbox.nvim',
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
+    opts = {
+      contrast = 'hard',
+    },
     config = function()
       -- Load the colorscheme here
-      vim.cmd.colorscheme 'catppuccin'
+      vim.cmd.colorscheme 'gruvbox'
+      vim.o.background = 'dark'
 
       -- You can configure highlights by doing something like
       vim.cmd.hi 'Comment gui=none'
@@ -584,15 +632,6 @@ require('lazy').setup {
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
-
-      -- Simple and easy statusline.
-      local statusline = require 'mini.statusline'
-      statusline.setup()
-
-      -- cursor location to LINE:COLUMN
-      statusline.section_location = function()
-        return '%2l:%-2v'
-      end
     end,
   },
 
