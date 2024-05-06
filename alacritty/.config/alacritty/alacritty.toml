@@ -1,16 +1,14 @@
-import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+import = ["~/.config/alacritty/themes/snazzy.toml"]
 
 [shell]
-program = "/usr/bin/tmux"
-
+program = "/bin/zsh"
 
 [window]
-opacity = 0.9
-# decorations = "None"
 startup_mode = "Maximized"
+opacity = 0.8
 
 [font]
-normal = { family = "JetBrainsMonoNerdFontMono", style = "Regular" }
+normal = { family = "CommitMono Nerd Font", style = "Regular" }
 size = 14.0
 
 [scrolling]
