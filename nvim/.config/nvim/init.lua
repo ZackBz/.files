@@ -136,7 +136,7 @@ require("lazy").setup({
 	{
 		"nvim-lualine/lualine.nvim",
 		opts = {
-			theme = "gruvbox",
+			theme = "material",
 		},
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
@@ -607,15 +607,21 @@ require("lazy").setup({
 		-- change the command in the config to whatever the name of that colorscheme is
 		--
 		-- to see what colorschemes are already installed, you can use `:Telescope colorscheme`
-		"ellisonleao/gruvbox.nvim",
+		"marko-cerovac/material.nvim",
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000, -- make sure to load this before all the other start plugins
-		opts = {
-			contrast = "hard",
-		},
 		config = function()
+			require("material").setup({
+				contrast = {
+					cursor_line = false,
+				},
+				disable = {
+					colored_cursor = false,
+				},
+			})
 			-- Load the colorscheme here
-			vim.cmd.colorscheme("gruvbox")
+			vim.g.material_style = "darker" -- Change material theme style here
+			vim.cmd.colorscheme("material")
 			vim.o.background = "dark"
 
 			-- You can configure highlights by doing something like
