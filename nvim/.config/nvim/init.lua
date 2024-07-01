@@ -63,6 +63,8 @@ vim.keymap.set("i", "<C-e>", "<End>", { desc = "Jump to end of line in insert mo
 vim.keymap.set("i", "<C-a>", "<Home>", { desc = "Jump to start of line in insert mode", noremap = true })
 vim.keymap.set("i", "<C-b>", "<Left>", { desc = "Move left one character in insert mode", noremap = true })
 vim.keymap.set("i", "<C-f>", "<Right>", { desc = "Move right one character in insert mode", noremap = true })
+vim.keymap.set("v", "<leader>y", '"+y', { noremap = true, silent = true })
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
