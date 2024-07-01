@@ -14,17 +14,13 @@ alias artisan='php artisan'
 alias config='cd ~/.config'
 alias alacrittyc='nvim ~/.config/alacritty/alacritty.toml'
 
-# functions
-function current_branch() {
-  ref=$(git symbolic-ref head 2> /dev/null) || return
-  echo ${ref#refs/heads/}
-}
+# binds
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 
 # git
 alias gaa='git add --all'
 alias gc='git commit -m'
-alias ggl= "git pull origin $(current_branch)"
-alias ggp="git push origin $(current_branch)"
 alias gs='git status'
 
 # plugins
